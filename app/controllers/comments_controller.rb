@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_filter :authenticate, only: :destroy
   
   def create
-    @comment = @article.comments.new(comment_params)
+    @comment = @article.comments.new(params[:comment])
     if @comment.save
       redirect_to @article, notice: 'Thanks for your comment'
     else 
